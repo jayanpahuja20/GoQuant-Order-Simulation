@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { Target, AlertTriangle, TrendingUp, TrendingDown } from 'lucide-react';
 
 const OrderbookTable = ({ data, type, simulatedOrder }) => {
-  // Create enhanced orderbook data with simulated order inserted
   const enhancedData = useMemo(() => {
     if (!simulatedOrder || !data || data.length === 0) {
       return data || [];
@@ -32,7 +31,7 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
     const simulatedEntry = {
       price: parseFloat(price),
       quantity: parseFloat(quantity),
-      total: parseFloat(quantity), // This would be cumulative in real implementation
+      total: parseFloat(quantity),
       isSimulated: true
     };
 
@@ -117,7 +116,6 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
 
   return (
     <div className={`border rounded-lg ${colors.border} ${colors.bg}`}>
-      {/* Header */}
       <div className="px-4 py-3 border-b border-gray-200">
         <div className="flex items-center justify-between mb-2">
           <h3 className={`font-semibold ${colors.text} flex items-center`}>
@@ -138,7 +136,6 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
           </span>
         </div>
         
-        {/* Column headers */}
         <div className="grid grid-cols-3 gap-2 text-xs text-gray-600 font-medium">
           <div className="text-left">Price</div>
           <div className="text-right">Size</div>
@@ -146,7 +143,6 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
         </div>
       </div>
 
-      {/* Orderbook rows */}
       <div className="max-h-80 overflow-y-auto">
         {enhancedData.slice(0, 15).map((level, index) => {
           const widthPercentage = ((level.quantity || 0) / maxQuantity) * 100;
@@ -159,7 +155,6 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
                 isSimulated ? 'ring-2 ring-yellow-400 ring-inset bg-yellow-50 z-10' : 'hover:bg-gray-50'
               }`}
             >
-              {/* Quantity visualization bar */}
               <div 
                 className={`absolute left-0 top-0 h-full ${
                   isSimulated ? 'bg-yellow-200' : colors.bar
@@ -167,7 +162,6 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
                 style={{ width: `${widthPercentage}%` }}
               />
               
-              {/* Order data */}
               <div className="relative z-10 w-full px-4 grid grid-cols-3 gap-2 text-xs">
                 <div className={`font-mono ${
                   isSimulated ? 'font-bold text-yellow-700' : colors.text
@@ -187,7 +181,6 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
                 </div>
               </div>
               
-              {/* Simulated order indicator */}
               {isSimulated && (
                 <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center">
                   <Target className="w-3 h-3 text-yellow-600" />
@@ -199,7 +192,6 @@ const OrderbookTable = ({ data, type, simulatedOrder }) => {
         })}
       </div>
 
-      {/* Simulated order summary at bottom */}
       {simulatedOrder && ((type === 'asks' && simulatedOrder.side === 'sell') || 
                           (type === 'bids' && simulatedOrder.side === 'buy')) && (
         <div className="px-4 py-2 bg-yellow-50 border-t border-yellow-200">
