@@ -183,7 +183,7 @@ yarn start
 
 ### API References
 
-API References:
+I have referred to the following documentation resources while building this project.
 
 1. Binance: https://www.binance.com/en-IN/binance-api
 2. Bybit: https://bybit-exchange.github.io/docs/
