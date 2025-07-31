@@ -32,7 +32,7 @@ export class WebSocketManager {
 
     try {
       const wsUrl = config.wsUrl;
-      console.log(`🔌 Attempting to connect to ${venue} at ${wsUrl}`);
+      console.log(`Attempting to connect to ${venue} at ${wsUrl}`);
       
       const ws = new WebSocket(wsUrl);
       this.connections.set(venue, ws);
