@@ -4,6 +4,8 @@
 
 A sophisticated real-time orderbook visualization and order simulation platform that connects to multiple cryptocurrency exchanges including Binance, Bybit, and Deribit. Built with React and Next.js, this application provides professional-grade trading analytics and market depth analysis.
 
+Note: The original assignment required connecting to OKX, but somehow, due to restrictions in India, I was not able to access their website. Hence, I have substituted OKX with Binance for fetching market data.
+
 ## 🚀 Features
 
 ### Real-Time Data
@@ -178,6 +180,14 @@ npm start
 yarn build
 yarn start
 ```
+
+### API References
+
+API References:
+
+1. Binance: https://www.binance.com/en-IN/binance-api
+2. Bybit: https://bybit-exchange.github.io/docs/
+3. Deribit: https://docs.deribit.com/
 
 ## 🎯 Usage Guide
 
